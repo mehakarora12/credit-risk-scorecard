@@ -146,37 +146,4 @@ credit-risk-scorecard/
 
 ---
 
-## 📝 Resume Bullets
-
-- Built end-to-end Credit Risk Scorecard on 307K applicants using WoE/IV feature selection, Logistic Regression, and XGBoost (AUC: 0.74, KS: 0.35, Gini: 0.48)
-- Implemented Points-to-Double-Odds scorecard methodology (PDO=20) producing a 300–900 CIBIL-style score with monotonically calibrated risk tiers (2% to 30% default rate)
-- Deployed interactive Streamlit app with real-time scoring, SHAP-based explainability, and portfolio risk dashboard across 307,511 applicants
-
----
-
-## 💬 Interview Talking Points
-
-**Q: Why Logistic Regression for the scorecard instead of XGBoost?**
-> LR coefficients map directly to scorecard points via the PDO formula — each feature contributes an additive points value. Tree-based models produce non-linear outputs that can't be decomposed this way. XGBoost is used separately for default probability and SHAP explainability where its superior discrimination is more useful.
-
-**Q: Why did you use XGBoost SHAP for score drivers instead of LR coefficients?**
-> After SMOTE + class_weight balancing, some LR coefficients developed counterintuitive directions — for example, PREV_REFUSED_COUNT showed a positive coefficient, implying more rejections help the score, which is wrong. XGBoost SHAP correctly identifies it as a negative driver. SHAP gives the true feature impact direction for the actual prediction.
-
-**Q: How did you handle class imbalance?**
-> SMOTE with sampling_strategy=0.3 applied after the train/test split on the training set only. This avoids synthetic samples appearing in the test set, which would inflate evaluation metrics. strategy=0.3 (not 0.5) keeps the synthetic minority ratio realistic.
-
-**Q: What does AUC 0.74 mean and is it good enough?**
-> AUC 0.74 means the model correctly ranks a random defaulter above a random repayer 74% of the time. For credit scoring with only 3 tables and 24 features, this is solid — industry models using full bureau data typically reach 0.78–0.82. The KS statistic of 0.35 confirms meaningful separation between defaulters and repayers at the score threshold.
-
----
-
-## 📌 Dataset
-
-**Home Credit Default Risk** — [Kaggle](https://www.kaggle.com/c/home-credit-default-risk)
-- 307,511 loan applications
-- Target: 0 = Repaid, 1 = Defaulted
-- Class imbalance: 91.93% repaid / 8.07% default
-
----
-
 *Built by Mahak | B.Tech CSE (AI) | Data Science Portfolio Project*
