@@ -1,0 +1,28 @@
+# Virtual Environment
+venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Jupyter
+.ipynb_checkpoints/
+
+# VS Code
+.vscode/
+
+# Raw Kaggle CSV files (too large for GitHub)
+Data/application_train.csv
+Data/application_test.csv
+Data/bureau.csv
+Data/bureau_balance.csv
+Data/previous_application.csv
+Data/installments_payments.csv
+Data/credit_card_balance.csv
+Data/POS_CASH_balance.csv
+Data/HomeCredit_columns_description.csv
+
+# Misc
+uninstall.txt
+*.log
+.DS_Store

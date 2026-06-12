@@ -1,0 +1,30 @@
+{
+    "PDO": 20,
+    "ODDS": 1,
+    "FACTOR": 28.85390081777927,
+    "OFFSET": 600.0,
+    "score_min": 300,
+    "score_max": 900,
+    "tiers": {
+        "Low Risk": {
+            "min": 650,
+            "max": 900,
+            "color": "#2ecc71"
+        },
+        "Medium Risk": {
+            "min": 600,
+            "max": 649,
+            "color": "#f39c12"
+        },
+        "High Risk": {
+            "min": 550,
+            "max": 599,
+            "color": "#e74c3c"
+        },
+        "Very High Risk": {
+            "min": 300,
+            "max": 549,
+            "color": "#8e44ad"
+        }
+    }
+}
